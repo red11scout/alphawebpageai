@@ -8,6 +8,8 @@ import DataDistributionChart from "@/components/DataDistributionChart";
 import TimeToValueChart from "@/components/TimeToValueChart";
 import ParticleBackground from "@/components/ParticleBackground";
 import GlowingCard from "@/components/GlowingCard";
+import TiltCard from "@/components/TiltCard";
+import InteractiveHeader from "@/components/InteractiveHeader";
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
@@ -73,18 +75,15 @@ export default function Home() {
       </section>
 
       {/* Section 2: The Problem - "Why AI Initiatives Fail" */}
-      <section id="problem" className="py-24 bg-background relative">
+      <section id="problem" className="py-24 bg-background relative overflow-hidden">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-              The Hidden Traps That Derail <span className="text-destructive">9 out of 10</span> AI Projects
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              MIT and McKinsey research reveals that most AI initiatives fail not because of technology, but due to strategic missteps.
-            </p>
-          </div>
+          <InteractiveHeader 
+            title="The Hidden Traps That Derail"
+            highlight="9 out of 10 AI Projects"
+            subtitle="MIT and McKinsey research reveals that most AI initiatives fail not because of technology, but due to strategic missteps."
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
             {[
               {
                 icon: <Users className="w-10 h-10 text-destructive" />,
@@ -117,19 +116,21 @@ export default function Home() {
                 desc: "Multi-vendor complexity delays value realization by 12-18 months on average."
               }
             ].map((item, i) => (
-              <Card key={i} className="border-l-4 border-l-destructive hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mb-4 p-3 bg-destructive/10 w-fit rounded-lg">
-                    {item.icon}
+              <TiltCard key={i} className="h-full">
+                <div className="h-full bg-card border border-border rounded-xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border-l-4 border-l-transparent hover:border-l-destructive relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-destructive/5 rounded-bl-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-destructive/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground">
+                      {item.desc}
+                    </p>
                   </div>
-                  <CardTitle className="text-xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    {item.desc}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                </div>
+              </TiltCard>
             ))}
           </div>
         </div>
