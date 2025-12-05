@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const data = [
   { name: 'Unstructured Data', value: 80, color: '#02a2fd' }, // Cyan
-  { name: 'Structured Data', value: 20, color: '#001278' },   // Navy
+  { name: 'Structured Data', value: 20, color: '#cde5f1' },   // Light Blue for better contrast on dark bg
 ];
 
 export default function DataDistributionChart() {
@@ -11,7 +11,7 @@ export default function DataDistributionChart() {
     <div className="relative w-full h-full flex flex-col items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-accent/5 rounded-full blur-3xl animate-pulse"></div>
       
-      <div className="relative z-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl w-full max-w-md">
+      <div className="relative z-10 bg-[#040822]/95 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-2xl w-full max-w-md">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-white">Corporate Data Volume</h3>
           <div className="text-xs text-blue-200 bg-white/10 px-2 py-1 rounded">2025 Projection</div>
@@ -65,7 +65,7 @@ export default function DataDistributionChart() {
           </div>
           <div className="flex items-center justify-between text-sm p-2 rounded hover:bg-white/5 transition-colors">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-primary"></div>
+              <div className="w-3 h-3 rounded-full bg-[#cde5f1]"></div>
               <span className="text-white">Structured Data</span>
             </div>
             <span className="text-blue-200">Traditional BI</span>
