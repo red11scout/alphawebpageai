@@ -151,7 +151,7 @@ export default function Home() {
                 We've developed a proven methodology to guide you from strategy to execution, ensuring every AI initiative delivers measurable business value.
               </p>
               <Button className="bg-primary text-white hover:bg-primary/90">
-                Download the Framework Guide
+                Workshop Preview
               </Button>
             </div>
 
