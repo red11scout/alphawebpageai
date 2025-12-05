@@ -6,6 +6,8 @@ import Layout from "@/components/Layout";
 import { useState } from "react";
 import DataDistributionChart from "@/components/DataDistributionChart";
 import TimeToValueChart from "@/components/TimeToValueChart";
+import ParticleBackground from "@/components/ParticleBackground";
+import GlowingCard from "@/components/GlowingCard";
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
@@ -19,9 +21,10 @@ export default function Home() {
           <img 
             src="/images/hero-background.png" 
             alt="Abstract data stream" 
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent"></div>
+          <ParticleBackground />
         </div>
 
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
@@ -257,15 +260,15 @@ export default function Home() {
                 desc: "A board-ready deck summarizing the strategy, value, and plan to secure stakeholder buy-in."
               }
             ].map((item, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-colors">
-                <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-6 text-secondary">
+              <GlowingCard key={i} className="p-8 backdrop-blur-sm">
+                <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-6 text-secondary shadow-[0_0_15px_rgba(2,162,253,0.3)]">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                 <p className="text-blue-100 leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </GlowingCard>
             ))}
           </div>
         </div>
